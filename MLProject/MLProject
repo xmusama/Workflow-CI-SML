@@ -1,0 +1,13 @@
+name: breast_cancer_ci
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_path: {type: path, default: dataset_preprocessing/processed.csv}
+      output_dir: {type: string, default: artifacts/model}
+      n_estimators: {type: int, default: 300}
+      max_depth: {type: int, default: 8}
+    command: >
+      python modelling.py --data-path {data_path} --output-dir {output_dir}
+      --n-estimators {n_estimators} --max-depth {max_depth}
